@@ -12,3 +12,5 @@ pymongo==4.1.1
 sqlparse==0.2.4
 tomli==2.0.1
 typing_extensions==4.1.1
+
+celery~=5.2.6

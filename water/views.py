@@ -2,9 +2,11 @@ from django.core.mail import EmailMessage, BadHeaderError
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.utils.html import strip_tags
+from django_celery_beat.models import CrontabSchedule, PeriodicTask
 
 from watermanagement import settings
 from .models import User, Client
+from .tasks import send_mail_func
 
 
 # Create your views here.
@@ -39,3 +41,17 @@ def newmail(request):
             return HttpResponse('invalid header found')
         return redirect('new-mail')
     return render(request, "water/newmail.html", context)
+
+
+# auto mail
+def test_func(requset):
+    send_mail_func.delay()
+    return HttpResponse("send_mail")
+
+
+def schedule_mail(requset):
+    schedule, created = CrontabSchedule.objects.get_or_create(hour=17, minute=42)
+    task = PeriodicTask.objects.get(name="send_billing_email")
+    task.crontab = schedule
+    task.save()
+    return HttpResponse("scheduled")
