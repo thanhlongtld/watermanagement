@@ -50,7 +50,7 @@ def test_func(requset):
 
 
 def schedule_mail(requset):
-    schedule, created = CrontabSchedule.objects.get_or_create(hour=17, minute=42)
+    schedule, created = CrontabSchedule.objects.get_or_create(hour=10, minute=42)
     task = PeriodicTask.objects.get(name="send_billing_email")
     task.crontab = schedule
     task.save()
