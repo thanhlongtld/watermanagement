@@ -27,6 +27,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/bootstrap-multiselect.css' %}" rel="stylesheet"/>
 
     <!-- tinyMCE-->
     <script src="https://cdn.tiny.cloud/1/csnicqa22ovgb29ticnaqd2sx9qhbiyo60moq4xdqlwnp2kl/tinymce/6/tinymce.min.js"
@@ -45,6 +46,7 @@
     </script>
 
     <!-- multichoice-->
+
 
 </head>
 
@@ -552,6 +554,23 @@
                                         {% endfor %}
                                     </select>
                                 </label>
+                            <div class="multiselect-group-clickable">
+                                  <select name="languageSelect[]" class="form-control" multiple data-live-search="true" id="languageSelect">
+                                        <option value="C++">C++</option>
+                                        <option value="C#">C#</option>
+                                        <option value="Java">Java</option>
+                                        <option value="Objective-C">Objective-C</option>
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="Perl">Perl</option>
+                                        <option value="PHP">PHP</option>
+                                        <option value="Ruby on Rails">Ruby on Rails</option>
+                                        <option value="Android">Android</option>
+                                        <option value="iOS">iOS</option>
+                                        <option value="HTML">HTML</option>
+                                        <option value="XML">XML</option>
+                                    </select>
+                            </div>
+
 
                             </div>
 
@@ -688,9 +707,13 @@
         </div>
     </div>
 </div>
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-multiselect.min.js' %}"></script>
+
 
 <!-- Core plugin JavaScript-->
 <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
@@ -704,5 +727,7 @@
 <!-- Page level custom scripts -->
 <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
 <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+
+
 </body>
 </html>
